@@ -1,0 +1,12 @@
+global:
+  smtp_from: "Alertmanager@mail"
+  smtp_smarthost: mail:1025
+
+route:
+  receiver: "mail"
+
+receivers:
+  - name: "mail"
+    email_configs:
+      - to: "pager@example.com"
+        require_tls: false

@@ -1,0 +1,38 @@
+version: "3"
+services:
+  grafana:
+    image: grafana/grafana:8.1.2
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana:/etc/grafana
+      - grafana-data:/var/lib/grafana
+  prometheus:
+    image: prom/prometheus:v2.29.2
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+  alertmanager:
+    image: prom/alertmanager:v0.23.0
+    command:
+      - "--config.file=/etc/alertmanager/alertmanager.yml"
+    ports:
+      - 9093:9093
+    volumes:
+      - ./alertmanager:/etc/alertmanager
+  node-exporter:
+    image: prom/node-exporter:v1.2.2
+    ports:
+      - 9100:9100
+  mail:
+    image: mailhog/mailhog:v1.0.1
+    ports:
+      - "8025:8025"
+
+volumes:
+  grafana-data: {}
+  prometheus-data: {}
