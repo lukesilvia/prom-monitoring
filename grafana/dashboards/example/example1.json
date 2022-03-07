@@ -19,10 +19,11 @@
     ]
   },
   "editable": true,
-  "gnetId": null,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1,
+  "id": 2,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
       "alert": {
@@ -60,7 +61,10 @@
         "noDataState": "no_data",
         "notifications": []
       },
-      "datasource": "prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "UdYvJfL7k"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -70,7 +74,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
-            "drawStyle": "bars",
+            "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
             "hideFrom": {
@@ -125,7 +129,8 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
@@ -150,19 +155,21 @@
       "type": "timeseries"
     }
   ],
-  "schemaVersion": 30,
+  "refresh": "",
+  "schemaVersion": 35,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "example1",
   "uid": "E-yqZ-4nk",
-  "version": 2
+  "version": 5,
+  "weekStart": ""
 }
