@@ -25,6 +25,41 @@
   "links": [],
   "panels": [
     {
+      "alert": {
+        "alertRuleTags": {},
+        "conditions": [
+          {
+            "evaluator": {
+              "params": [
+                1
+              ],
+              "type": "lt"
+            },
+            "operator": {
+              "type": "and"
+            },
+            "query": {
+              "params": [
+                "A",
+                "1m",
+                "now"
+              ]
+            },
+            "reducer": {
+              "params": [],
+              "type": "avg"
+            },
+            "type": "query"
+          }
+        ],
+        "executionErrorState": "alerting",
+        "for": "5m",
+        "frequency": "1m",
+        "handler": 1,
+        "name": "Up instance alert ( classic )",
+        "noDataState": "no_data",
+        "notifications": []
+      },
       "datasource": "prometheus",
       "fieldConfig": {
         "defaults": {
@@ -101,6 +136,14 @@
           "legendFormat": "{{job}} - {{instance}}",
           "queryType": "randomWalk",
           "refId": "A"
+        }
+      ],
+      "thresholds": [
+        {
+          "colorMode": "critical",
+          "op": "lt",
+          "value": 1,
+          "visible": true
         }
       ],
       "title": "Up instance",
